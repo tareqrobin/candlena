@@ -6,7 +6,7 @@ const paymentMethods = ["visa","mastercard","amex","paypal"];
     <>
       {/* Footer */}
       <footer className="border-t py-8 px-6 bg-black">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto flex flex-col gap-2">
           <div className="flex justify-center gap-4 mb-4">
             {paymentMethods.map((payment) => (
               <div
@@ -21,7 +21,7 @@ const paymentMethods = ["visa","mastercard","amex","paypal"];
           </div>
           <div className="text-center text-sm text-gray-50">
             <p>© 2024, Natural Candles • Powered by Rajbin</p>
-            <div className="flex justify-center gap-4 mt-2">
+            <div className="flex flex-wrap justify-center gap-4 mt-2">
               <a href="#" className="hover:text-stone-300">
                 Privacy policy
               </a>

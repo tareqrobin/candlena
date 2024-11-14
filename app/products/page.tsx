@@ -188,10 +188,10 @@ const ProductsPage: React.FC = () => {
       <h1 className="text-4xl font-light mb-8">Products</h1>
 
       {/* Filters and Sort Section */}
-      <div className="flex flex-wrap justify-between items-center pb-8">
-        <div className="flex gap-8 items-center">
-          <span className="text-stone-600">Filter:</span>
-          <div className="grid-cols-1 lg:grid-cols-2">
+      <div className="lg:flex flex-wrap lg:justify-between items-center pb-8">
+        <div className="flex gap-8 items-center justify-between">
+          <span className="text-stone-600 hidden md:visible">Filter:</span>
+          <div className="grid-cols-1 lg:grid-cols-2 gap-2">
           <FilterMenu
             label="Availability"
             value={availabilityFilter}
@@ -207,9 +207,9 @@ const ProductsPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex gap-4 items-center">
-          <span className="text-stone-600">Sort by:</span>
-          <div className="grid-cols-1 lg:grid-cols-2">
+        <div className="flex gap-4">
+          <span className="text-stone-600 hidden md:visible">Sort by:</span>
+          {/* <div className="grid-cols-1 lg:grid-cols-2 gap-2"> */}
           <FilterMenu
             label={sortOption}
             value={sortOption}
@@ -221,15 +221,16 @@ const ProductsPage: React.FC = () => {
             ]}
             onChange={setSortOption}
           />
-          <span className="text-stone-600 ml-4">
-            {filteredProducts.length} products
-          </span>
-          </div>
+
+          {/* </div> */}
         </div>
       </div>
 
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <span className="text-stone-600 ml-4 ml-auto">
+          {filteredProducts.length} products
+        </span>
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
