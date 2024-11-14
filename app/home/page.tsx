@@ -1,8 +1,30 @@
-import { url } from "inspector";
 import React from "react";
 
-// Separate data from component to avoid circular references
-const products = [
+// Define interfaces for our data types
+interface Product {
+  id: number;
+  name: string;
+  price: string;
+  image: string;
+}
+
+interface Testimonial {
+  id: number;
+  name: string;
+  text: string;
+}
+
+// Type the product prop
+interface ProductCardProps {
+  product: Product;
+}
+
+// Type the testimonial prop
+interface TestimonialCardProps {
+  testimonial: Testimonial;
+}
+
+const products: Product[] = [
   {
     id: 1,
     name: "Aromatic Scented Bubble Candles",
@@ -33,7 +55,7 @@ const products = [
   },
 ];
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Sarah T",
@@ -51,7 +73,7 @@ const testimonials = [
   },
 ];
 
-const ProductCard = ({ product }) => (
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
   <div className="flex flex-col border rounded shadow-md">
     <img src={product.image} alt={product.name} className="rounded-lg mb-4" />
     <div className="p-4">
@@ -66,21 +88,16 @@ const ProductCard = ({ product }) => (
   </div>
 );
 
-const TestimonialCard = ({ testimonial }) => (
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => (
   <div className="bg-stone-100 p-6 rounded-lg">
     <p className="text-sm mb-4">{testimonial.text}</p>
     <p className="text-sm font-medium">{testimonial.name}</p>
   </div>
 );
 
-const CandleShop = () => {
+const CandleShop: React.FC = () => {
   return (
     <div className="min-h-screen bg-neutral-50">
-      {/* Top Banner */}
-      {/* <div className="bg-stone-700 text-white text-center py-2 text-sm">
-        20% off your first order with code NOV20
-      </div> */}
-
       {/* Hero Section */}
       <div>
         <div
@@ -101,15 +118,11 @@ const CandleShop = () => {
             </button>
           </div>
         </div>
-        <div className="h-20 flex items-center justify-center">
-          {/* <h2 className="text-center text-3xl font-sans text-white">
-            Featured Fall Candle
-          </h2> */}
-        </div>
+        <div className="h-20 flex items-center justify-center" />
       </div>
 
       {/* Featured Product */}
-      <div className=" py-8">
+      <div className="py-8">
         <div className="max-w-5xl mx-auto grid grid-cols-2 gap-8 bg-stone-600">
           <img
             src="https://waxedcandlesco.com/cdn/shop/files/IMG_0125_55661a61-2951-43b4-9b0c-f56568e05d66.png?v=1726115845&width=750"
