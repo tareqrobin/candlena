@@ -104,7 +104,7 @@ const CandleShop: React.FC = () => {
           className="relative h-96 bg-stone-100"
           style={{
             backgroundImage:
-              "url(https://img.freepik.com/free-photo/burning-candle-black-background-with-backlight-memorial-day_169016-60044.jpg?t=st=1731567371~exp=1731570971~hmac=0489635900e2b2dc3319a86862687a4d13bef7bf139d9c5842f30869152457e6&w=996)",
+              "url(https://images.unsplash.com/photo-1593542468714-ac3ba4b38d43?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             height: "70vh",
@@ -112,8 +112,8 @@ const CandleShop: React.FC = () => {
         >
           <div className="absolute inset-0 flex items-center justify-center flex-col gap-4">
             <h1 className="text-4xl font-light text-white">Aromatic Scented Candles</h1>
-            <p className="text-stone-300">Feel calm and relaxed all day long</p>
-            <button className="bg-white text-black px-6 py-2 rounded">
+            <p className="text-stone-100">Feel calm and relaxed all day long</p>
+            <button className="bg-stone-600 text-white px-6 py-2 rounded hover:bg-stone-700">
               Shop all
             </button>
           </div>
