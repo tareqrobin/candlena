@@ -3,7 +3,28 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-const products = [
+// Define interfaces for our data types
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  availability: 'In Stock' | 'Out of Stock';
+}
+
+// Props interfaces
+interface FilterMenuProps {
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (option: string) => void;
+}
+
+interface ProductCardProps {
+  product: Product;
+}
+
+const products: Product[] = [
   {
     id: 1,
     name: "Aromatic Scented Bubble Candles",
@@ -34,11 +55,11 @@ const products = [
   }
 ];
 
-const ProductsPage = () => {
-  const [sortOption, setSortOption] = useState('Alphabetically, A-Z');
-  const [availabilityFilter, setAvailabilityFilter] = useState('All');
-  const [priceFilter, setPriceFilter] = useState('All');
-  const [filteredProducts, setFilteredProducts] = useState(products);
+const ProductsPage: React.FC = () => {
+  const [sortOption, setSortOption] = useState<string>('Alphabetically, A-Z');
+  const [availabilityFilter, setAvailabilityFilter] = useState<string>('All');
+  const [priceFilter, setPriceFilter] = useState<string>('All');
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
 
   useEffect(() => {
     let result = [...products];
@@ -78,8 +99,8 @@ const ProductsPage = () => {
   }, [availabilityFilter, priceFilter, sortOption]);
 
   // Filter menu component
-  const FilterMenu = ({ label, value, options, onChange }) => {
-    const [isOpen, setIsOpen] = useState(false);
+  const FilterMenu: React.FC<FilterMenuProps> = ({ label, value, options, onChange }) => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
       <div className="relative">
@@ -116,7 +137,7 @@ const ProductsPage = () => {
   };
 
   // Product card component
-  const ProductCard = ({ product }) => (
+  const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
     <div className="group border rounded shadow-md">
       <div className="aspect-square mb-4 relative overflow-hidden bg-stone-100 rounded-lg">
         <img
